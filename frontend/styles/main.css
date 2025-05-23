@@ -51,6 +51,13 @@
 
 html {
     scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+@media (max-width: 768px) {
+    html {
+        font-size: 14px;
+    }
 }
 
 body {
@@ -62,9 +69,29 @@ body {
 }
 
 .container {
+    width: 100%;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 var(--space-4);
+}
+
+@media (max-width: 1280px) {
+    .container {
+        max-width: 1024px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .container {
+        max-width: 768px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        max-width: 100%;
+        padding: 0 var(--space-3);
+    }
 }
 
 /* Navigation */
@@ -134,6 +161,7 @@ body {
 /* Hero Section */
 .hero {
     height: 100vh;
+    min-height: 600px;
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/hero-bg.jpg');
     background-size: cover;
     background-position: center;
@@ -143,6 +171,7 @@ body {
     text-align: center;
     color: white;
     margin-top: 4rem;
+    padding: var(--space-4);
 }
 
 .hero-content {
@@ -151,13 +180,13 @@ body {
 }
 
 .hero h1 {
-    font-size: 3.5rem;
+    font-size: clamp(2rem, 5vw, 3.5rem);
     margin-bottom: var(--space-3);
     font-weight: 600;
 }
 
 .hero p {
-    font-size: 1.25rem;
+    font-size: clamp(1rem, 2vw, 1.25rem);
     margin-bottom: var(--space-5);
     opacity: 0.9;
 }
@@ -192,7 +221,7 @@ body {
 
 .destinations-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: var(--space-4);
 }
 
@@ -573,8 +602,9 @@ textarea {
 }
 
 .masonry-grid {
-    columns: 3;
-    column-gap: 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--space-4);
 }
 
 .gallery-item {
@@ -710,7 +740,7 @@ textarea {
 /* Responsive Design */
 @media (max-width: 1024px) {
     .masonry-grid {
-        columns: 2;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     }
 }
 
@@ -720,7 +750,8 @@ textarea {
     }
 
     .masonry-grid {
-        columns: 1;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: var(--space-3);
     }
 
     .lightbox-close {
@@ -743,23 +774,30 @@ textarea {
     }
 
     .nav-links {
-        display: none;
-        position: absolute;
-        top: 100%;
+        position: fixed;
+        top: 4rem;
         left: 0;
         right: 0;
-        background-color: var(--background-light);
-        padding: 1rem;
+        background-color: var(--color-background);
+        padding: var(--space-4);
         flex-direction: column;
-        gap: 1rem;
+        align-items: center;
+        gap: var(--space-3);
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        box-shadow: var(--shadow-md);
     }
 
     .dark-mode .nav-links {
-        background-color: var(--background-dark);
+        background-color: var(--color-background);
     }
 
     .nav-links.active {
-        display: flex;
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
     }
 
     .hero h1 {
@@ -859,9 +897,10 @@ textarea {
 .form-group select,
 .form-group textarea {
     width: 100%;
-    padding: 0.75rem;
-    border: 1px solid var(--border-color);
-    border-radius: 4px;
+    padding: var(--space-3);
+    border: 1px solid var(--color-gray-300);
+    border-radius: var(--radius-md);
+    font-size: 1rem;
     background-color: var(--bg-primary);
     color: var(--text-primary);
 }
@@ -872,9 +911,9 @@ textarea {
 }
 
 .image-preview {
-    position: relative;
-    max-width: 300px;
-    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: var(--space-3);
 }
 
 .image-preview img {
@@ -905,16 +944,44 @@ textarea {
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
-    .upload-header h1 {
-        font-size: 2rem;
-    }
-
-    .upload-section {
-        padding: 1.5rem;
-    }
-
+@media (max-width: 640px) {
     .image-preview {
-        max-width: 100%;
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
     }
+}
+
+/* Utility Classes for Responsive Design */
+.hide-on-mobile {
+    display: block;
+}
+
+.show-on-mobile {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .hide-on-mobile {
+        display: none;
+    }
+
+    .show-on-mobile {
+        display: block;
+    }
+}
+
+/* Responsive Typography */
+h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+}
+
+h2 {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+h3 {
+    font-size: clamp(1.25rem, 3vw, 2rem);
+}
+
+p {
+    font-size: clamp(1rem, 2vw, 1.125rem);
 } 
