@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nepal Travel</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="logo">Nepal Travel</a>
+            <div class="nav-links">
+                <a href="/" class="active">Home</a>
+                <a href="/frontend/destinations.html">Destinations</a>
+                <a href="/frontend/gallery.html">Gallery</a>
+                <a href="/frontend/upload.html">Upload</a>
+            </div>
+            <button class="theme-toggle" id="themeToggle">
+                <svg class="moon-icon" viewBox="0 0 24 24" width="24" height="24">
+                    <path d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26 5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z"/>
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Discover Nepal</h1>
+            <p>Explore the beauty of the Himalayas</p>
+            <a href="/frontend/destinations.html" class="cta-button">Start Exploring</a>
+        </div>
+    </header>
+
+    <!-- Featured Destinations -->
+    <section class="featured-destinations">
+        <div class="container">
+            <h2>Featured Destinations</h2>
+            <div class="destinations-grid" id="featuredDestinations">
+                <!-- Destinations will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Nepal Travel. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/theme.js"></script>
+</body>
+</html> 

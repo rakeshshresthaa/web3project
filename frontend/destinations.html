@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destinations - Nepal Travel</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="/frontend/index.html" class="logo">Nepal Travel</a>
+            <div class="nav-links">
+                <a href="/frontend/index.html">Home</a>
+                <a href="/frontend/destinations.html" class="active">Destinations</a>
+                <a href="/frontend/gallery.html">Gallery</a>
+                <a href="/frontend/upload.html">Upload</a>
+            </div>
+            <button id="themeToggle" class="theme-toggle">
+                <i class="fas fa-moon"></i>
+            </button>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Destinations Header -->
+    <header class="destinations-header">
+        <div class="container">
+            <h1>Explore Nepal</h1>
+            <p>Discover the most beautiful destinations in Nepal</p>
+        </div>
+    </header>
+
+    <!-- Filters -->
+    <section class="filters">
+        <div class="container">
+            <div class="filter-group">
+                <label for="type">Type:</label>
+                <select id="type">
+                    <option value="">All Types</option>
+                    <option value="mountain">Mountain</option>
+                    <option value="cultural">Cultural</option>
+                    <option value="adventure">Adventure</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="rating">Rating:</label>
+                <select id="rating">
+                    <option value="">All Ratings</option>
+                    <option value="4">4+ Stars</option>
+                    <option value="3">3+ Stars</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="search">Search:</label>
+                <input type="text" id="search" placeholder="Search destinations...">
+            </div>
+        </div>
+    </section>
+
+    <!-- Destinations Grid -->
+    <section class="destinations-grid">
+        <div class="container">
+            <div class="grid" id="destinationsGrid">
+                <!-- Destinations will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p>Email: info@nepaltravel.com</p>
+                    <p>Phone: +977 1234567890</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <a href="index.html">Home</a>
+                    <a href="destinations.html">Destinations</a>
+                    <a href="gallery.html">Gallery</a>
+                    <a href="upload.html">Upload</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Nepal Travel. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/destinations.js"></script>
+</body>
+</html> 

@@ -1,0 +1,920 @@
+/* Design System */
+:root {
+    /* Colors */
+    --color-primary: #0ea5e9;
+    --color-primary-dark: #0284c7;
+    --color-background: #ffffff;
+    --color-background-dark: #1e293b;
+    --color-text: #1e293b;
+    --color-text-dark: #f8fafc;
+    --color-gray-100: #f1f5f9;
+    --color-gray-200: #e2e8f0;
+    --color-gray-300: #cbd5e1;
+    
+    /* Typography */
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    
+    /* Spacing */
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 1rem;
+    --space-4: 1.5rem;
+    --space-5: 2rem;
+    --space-6: 3rem;
+    
+    /* Border Radius */
+    --radius-sm: 0.25rem;
+    --radius-md: 0.5rem;
+    --radius-lg: 1rem;
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    
+    /* Transitions */
+    --transition: all 0.2s ease;
+}
+
+/* Dark Mode */
+.dark-mode {
+    --color-background: var(--color-background-dark);
+    --color-text: var(--color-text-dark);
+}
+
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    color: var(--color-text);
+    background-color: var(--color-background);
+    transition: var(--transition);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-4);
+}
+
+/* Navigation */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--color-background);
+    box-shadow: var(--shadow-sm);
+    z-index: 1000;
+    padding: var(--space-3) 0;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    gap: var(--space-4);
+}
+
+.nav-links a {
+    color: var(--color-text);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--color-primary);
+}
+
+.theme-toggle {
+    background: none;
+    border: none;
+    color: var(--color-text);
+    cursor: pointer;
+    padding: var(--space-2);
+    border-radius: var(--radius-md);
+    transition: var(--transition);
+}
+
+.theme-toggle:hover {
+    background-color: var(--color-gray-100);
+}
+
+.dark-mode .theme-toggle:hover {
+    background-color: var(--color-gray-200);
+}
+
+.moon-icon {
+    fill: currentColor;
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    margin-top: 4rem;
+}
+
+.hero-content {
+    max-width: 800px;
+    padding: var(--space-4);
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: var(--space-3);
+    font-weight: 600;
+}
+
+.hero p {
+    font-size: 1.25rem;
+    margin-bottom: var(--space-5);
+    opacity: 0.9;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: var(--space-3) var(--space-5);
+    background-color: var(--color-primary);
+    color: white;
+    text-decoration: none;
+    border-radius: var(--radius-md);
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.cta-button:hover {
+    background-color: var(--color-primary-dark);
+    transform: translateY(-2px);
+}
+
+/* Featured Destinations */
+.featured-destinations {
+    padding: var(--space-6) 0;
+}
+
+.featured-destinations h2 {
+    text-align: center;
+    margin-bottom: var(--space-5);
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.destinations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-4);
+}
+
+.destination-card {
+    background-color: var(--color-background);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+}
+
+.destination-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+.destination-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.destination-content {
+    padding: var(--space-4);
+}
+
+.destination-content h3 {
+    margin-bottom: var(--space-2);
+    color: var(--color-primary);
+    font-weight: 600;
+}
+
+/* Footer */
+.footer {
+    background-color: var(--color-gray-100);
+    padding: var(--space-4) 0;
+    text-align: center;
+    color: var(--color-text);
+}
+
+.dark-mode .footer {
+    background-color: var(--color-gray-200);
+}
+
+/* Destinations Page Styles */
+.destinations-header {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/nepal-mountains.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 100px 0;
+    margin-bottom: 2rem;
+}
+
+.destinations-header h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.filters {
+    background-color: var(--bg-secondary);
+    padding: 1.5rem 0;
+    margin-bottom: 2rem;
+}
+
+.filter-group {
+    display: inline-block;
+    margin-right: 1.5rem;
+}
+
+.filter-group label {
+    margin-right: 0.5rem;
+    font-weight: 500;
+}
+
+.filter-group select,
+.filter-group input {
+    padding: 0.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+.destinations-grid {
+    padding: 2rem 0;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.destination-card {
+    background-color: var(--bg-secondary);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.destination-card:hover {
+    transform: translateY(-5px);
+}
+
+.card-image {
+    position: relative;
+    height: 200px;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-rating {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 0.5rem;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.card-content {
+    padding: 1.5rem;
+}
+
+.card-content h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+}
+
+.card-type {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.card-description {
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+.no-results {
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+}
+
+.error {
+    text-align: center;
+    padding: 2rem;
+    color: #dc2626;
+    font-size: 1.1rem;
+}
+
+/* Destination Details Page Styles */
+.destination-details {
+    padding: 2rem 0;
+}
+
+.destination-header {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.destination-header img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.destination-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 2rem;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    color: white;
+    border-radius: 0 0 8px 8px;
+}
+
+.destination-info h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.destination-meta {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.destination-meta .type {
+    background-color: var(--primary-color);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-weight: 500;
+}
+
+.destination-meta .rating {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.destination-content {
+    margin-bottom: 3rem;
+}
+
+.destination-content .description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    background-color: var(--bg-secondary);
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.detail-item i {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
+/* Reviews Section */
+.reviews-section {
+    margin-top: 3rem;
+}
+
+.reviews-section h2 {
+    margin-bottom: 2rem;
+}
+
+.review-card {
+    background-color: var(--bg-secondary);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.review-rating {
+    display: flex;
+    gap: 0.25rem;
+}
+
+.review-rating i {
+    color: #e5e7eb;
+}
+
+.review-rating i.active {
+    color: #fbbf24;
+}
+
+.review-date {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.review-comment {
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+.review-author {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* Review Form */
+.review-form {
+    background-color: var(--bg-secondary);
+    padding: 2rem;
+    border-radius: 8px;
+    margin-top: 2rem;
+}
+
+.review-form h3 {
+    margin-bottom: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.rating-input {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.rating-input i {
+    font-size: 1.5rem;
+    color: #e5e7eb;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.rating-input i:hover,
+.rating-input i.active {
+    color: #fbbf24;
+}
+
+textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    resize: vertical;
+}
+
+.no-reviews {
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+}
+
+/* Gallery Page Styles */
+.gallery-header {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/nepal-gallery.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 100px 0;
+    margin-bottom: 2rem;
+}
+
+.gallery-header h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.gallery-filters {
+    background-color: var(--bg-secondary);
+    padding: 1.5rem 0;
+    margin-bottom: 2rem;
+}
+
+.masonry-grid {
+    columns: 3;
+    column-gap: 1.5rem;
+}
+
+.gallery-item {
+    break-inside: avoid;
+    margin-bottom: 1.5rem;
+    position: relative;
+    cursor: pointer;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+.gallery-item-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1.5rem;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    color: white;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover .gallery-item-overlay {
+    opacity: 1;
+}
+
+.gallery-item-overlay h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+}
+
+.gallery-item-overlay p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+/* Lightbox */
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.lightbox.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.lightbox-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90vh;
+}
+
+.lightbox-content img {
+    max-width: 100%;
+    max-height: 80vh;
+    object-fit: contain;
+}
+
+.lightbox-caption {
+    color: white;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.lightbox-caption h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: -2rem;
+    right: -2rem;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.lightbox-prev,
+.lightbox-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 1rem;
+    transition: opacity 0.3s ease;
+}
+
+.lightbox-prev {
+    left: -4rem;
+}
+
+.lightbox-next {
+    right: -4rem;
+}
+
+.lightbox-prev:hover,
+.lightbox-next:hover {
+    opacity: 0.7;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .masonry-grid {
+        columns: 2;
+    }
+}
+
+@media (max-width: 768px) {
+    .gallery-header h1 {
+        font-size: 2rem;
+    }
+
+    .masonry-grid {
+        columns: 1;
+    }
+
+    .lightbox-close {
+        top: -3rem;
+        right: 0;
+    }
+
+    .lightbox-prev {
+        left: 0;
+    }
+
+    .lightbox-next {
+        right: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: var(--background-light);
+        padding: 1rem;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .dark-mode .nav-links {
+        background-color: var(--background-dark);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .destinations-header h1 {
+        font-size: 2rem;
+    }
+
+    .filters {
+        padding: 1rem 0;
+    }
+
+    .filter-group {
+        display: block;
+        margin-bottom: 1rem;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .destination-header img {
+        height: 300px;
+    }
+
+    .destination-info h1 {
+        font-size: 2rem;
+    }
+
+    .destination-meta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .details-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Upload Page Styles */
+.upload-header {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/nepal-upload.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 100px 0;
+    margin-bottom: 2rem;
+}
+
+.upload-header h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.upload-forms {
+    padding: 2rem 0;
+}
+
+.upload-section {
+    background-color: var(--bg-secondary);
+    padding: 2rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}
+
+.upload-section h2 {
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+.upload-form {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+.form-group input[type="file"] {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.image-preview {
+    position: relative;
+    max-width: 300px;
+    margin-top: 1rem;
+}
+
+.image-preview img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+.remove-image {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.remove-image:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .upload-header h1 {
+        font-size: 2rem;
+    }
+
+    .upload-section {
+        padding: 1.5rem;
+    }
+
+    .image-preview {
+        max-width: 100%;
+    }
+} 
